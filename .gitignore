@@ -28,6 +28,9 @@ yarn-error.log*
 # local env files
 .env*.local
 
+# firebase private key
+fabchat-9e5b1-firebase-adminsdk-f7x2k-f7ef12845e.json
+
 # vercel
 .vercel
 
