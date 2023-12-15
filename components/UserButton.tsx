@@ -13,11 +13,17 @@ import UserAvatar from './UserAvatar';
 import { Session } from 'next-auth';
 import { Button } from './ui/button';
 import { signIn, signOut } from 'next-auth/react';
+import { useSubscriptionStore } from '@/store/store';
+import LoadingSpinner from './LoadingSpinner';
+import { StarIcon } from 'lucide-react';
+import ManageAccountButton from './ManageAccountButton';
 
 type Props = { session: Session | null };
 
 function UserButton({ session }: Props) {
-  // subscription listner
+  // subscription listener
+  const subscription = useSubscriptionStore((state) => state.subscription);
+
   // if no session
   if (!session)
     return (
@@ -34,6 +40,25 @@ function UserButton({ session }: Props) {
       <DropdownMenuContent>
         <DropdownMenuLabel>{session.user?.name}</DropdownMenuLabel>
         <DropdownMenuSeparator />
+
+        {subscription === undefined && (
+          <DropdownMenuItem>
+            <LoadingSpinner />
+          </DropdownMenuItem>
+        )}
+
+        {subscription?.role === 'pro' && (
+          <>
+            <DropdownMenuLabel className="text-xs flex items-center justify-center space-x-1 text-[#E935C1] animate-pulse">
+              <StarIcon fill="#E935C1" />
+              <p>PRO</p>
+            </DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>
+              <ManageAccountButton />
+            </DropdownMenuItem>
+          </>
+        )}
         <DropdownMenuItem onClick={() => signOut()}>Sign Out</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

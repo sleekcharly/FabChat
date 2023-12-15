@@ -22,7 +22,7 @@ const tiers = [
   },
   {
     name: 'Pro',
-    id: '1tXJhDXzaM7+TnWaHr/aYlztFpx3iYloszjN9cNWtnU=',
+    id: 'pro',
     href: '#',
     priceMonthly: '₦3,999',
     description: 'Unlock the full Potential with Pro!',
