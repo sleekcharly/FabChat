@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import DemoGif from '../images/demo.gif';
+import DemoPng from '../images/demo.png';
 
 export default async function Home() {
   return (
@@ -54,7 +54,7 @@ export default async function Home() {
               <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
                 <Image
                   unoptimized
-                  src={DemoGif}
+                  src={DemoPng}
                   alt="App Screenshot"
                   width={2432}
                   height={1442}
