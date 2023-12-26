@@ -28,6 +28,7 @@ const ChatMembersConverter: FirestoreDataConverter<ChatMembers> = {
       userId: member.userId,
       email: member.email,
       timestamp: member.timestamp,
+      isAdmin: member.isAdmin,
       chatId: member.chatId,
       image: member.image,
     };
